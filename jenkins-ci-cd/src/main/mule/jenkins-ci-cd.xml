@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="jenkins-ci-cd" doc:id="6a820b00-6208-4cce-85a8-f8f033b95e25" >
+		<http:listener doc:name="Listener" doc:id="f0452f52-2481-43ee-8906-5f99b2f97f96" config-ref="HTTP_Listener_config" path="/getdata" allowedMethods="GET"/>
+		<ee:transform doc:name="Transform Message" doc:id="9c16b1f4-d389-4817-a8f8-126bc5f53f77" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+ "demo":"This is a demo flow for CI/CD pipeline"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="f703f001-0b2e-41df-80db-9f03b73fc3d4" message="Flow Completed"/>
+	</flow>
+</mule>
