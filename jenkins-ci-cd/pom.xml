@@ -35,8 +35,8 @@
 <cloudHubDeployment>
       <uri>https://anypoint.mulesoft.com/</uri>
       <muleVersion>4.3.0</muleVersion>
-      <username>prathamacc2</username>
-      <password>Rockstar1@</password>
+      <username>username</username>
+      <password>password</password>
       <applicationName>jenkins-cicd-demo</applicationName>
       <environment>Sandbox</environment>
          <workers>1</workers>
